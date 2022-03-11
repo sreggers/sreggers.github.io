@@ -1,0 +1,8 @@
+@import url('./reset.css');
+
+@font-face {
+  font-family: "Lexend";
+  font-weight: 700;
+  src: url("/fonts/Lexend/Lexend-Bold.ttf") format("truetype");
+}
+
