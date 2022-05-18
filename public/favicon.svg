@@ -4,18 +4,18 @@
 	<desc>Created with Fabric.js 4.6.0</desc>
 	<style>
 		path {
-			fill: rgb(118,168,123);
+			fill: rgb(177,215,242);
 		}
 		text {
-			fill: rgb(249,249,249);
+			fill: rgb(50,50,50);
 		}
 
 		@media (prefers-color-scheme: dark) {
 			path {
-				fill: rgb(249,249,249);
+				fill: rgb(50,50,50);
 			}
 			text {
-				fill: rgb(118,168,123);
+				fill: rgb(177,215,242);
 			}
 		}
 	</style>

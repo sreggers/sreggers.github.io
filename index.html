@@ -32,6 +32,57 @@
 </head>
 
 <body>
-  <h1>Test</h1>
+  <header id="hero">
+    <nav class="hero-navbar" aria-labelledby="header-navigation">
+      <h3 id="header-navigation" class="nav-brand">Sebastiaan&nbsp;<span class="header-accent">Reggers</span></h3>
+      <ul class="nav-elem-list">
+        <li class="nav-elem"><a href="#about">{{t('navbar.about')}}</a></li>
+        <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
+        <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
+        <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+        <li class="nav-elem">
+          <button :class="{ active: current == 'en' }" @click="changeLocale('en')">en</button>
+          &nbsp;
+          <button :class="{ active: current == 'nl' }" @click="changeLocale('nl')">nl</button>
+        </li>
+      </ul>
+    </nav>
+    <img src="./src/images/profile-optimized.jpg" alt="This is a picture of me." class="hero-image">
+  </header>
+  <main id="content">
+    <div class="content-spacer">
+      <section class="info-section">
+        <section id="about">
+          <header><h1>{{t('about.header')}}</h1></header>
+          <article>
+            <p>{{t('about.text')}}</p>
+          </article>
+        </section>
+        <section id="experience">
+          <header><h2>{{t('experience.header')}}</h2></header>
+          <article></article>
+        </section>
+        <section id="education">
+          <header><h2>{{t('education.header')}}</h2></header>
+          <article></article>
+        </section>
+        <section id="skills">
+          <header><h2>{{t('skills.header')}}</h2></header>
+          <article></article>
+        </section>
+      </section>
+      <aside id="scrollspy">
+        <nav class="scrollspy-navbar" aria-labelledby="scrollspy-navigation">
+          <ul class="nav-elem-list">
+            <li class="nav-elem active"><a href="#about">{{t('navbar.about')}}</a></li>
+            <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
+            <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
+            <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </main>
+  <script type="module" src="./src/scripts/index.js"></script>
 </body>
 </html>

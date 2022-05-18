@@ -9,5 +9,9 @@
   },
   "devDependencies": {
     "vite": "^2.8.0"
+  },
+  "dependencies": {
+    "petite-vue": "^0.4.1",
+    "petite-vue-i18n-lite": "^1.0.3"
   }
 }
