@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Resume - SReggers</title>
+
+  
+
+  
+  
+
+  <meta name="description" content="This is my online resume in the form of a web page. Here you can find all information about my professional and some personal development. Want to have a look at the source code for this page? Go ahead and visit https://github.com/sreggers/sreggers.github.io">
+  <meta property="og:title" content="Resume - SReggers">
+  <meta property="og:description" content="This is my online resume in the form of a web page. Here you can find all information about my professional and some personal development. Want to have a look at the source code for this page? Go ahead and visit https://github.com/sreggers/sreggers.github.io">
+  <meta property="og:image" content="/image.png">
+  <meta property="og:image:alt" content="Sebastiaan Reggers">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:url" content="https://sreggers.github.io">
+  <link rel="canonical" href="https://sreggers.github.io">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/my.webmanifest">
+  <meta name="theme-color" content="#FF00FF">
+  <script type="module" crossorigin src="/assets/index.a1a8dbe1.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.6bd6add4.js">
+  <link rel="stylesheet" href="/assets/index.bfb8f109.css">
+</head>
+
+<body>
+  <header id="hero">
+    <nav class="hero-navbar" aria-labelledby="header-navigation">
+      <h3 id="header-navigation" class="nav-brand">Sebastiaan&nbsp;<span class="header-accent">Reggers</span></h3>
+      <ul class="nav-elem-list">
+        <li class="nav-elem"><a href="#about">{{t('navbar.about')}}</a></li>
+        <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
+        <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
+        <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+        <li class="nav-elem">
+          <button :class="{ active: current == 'en' }" @click="changeLocale('en')">en</button>
+          &nbsp;
+          <button :class="{ active: current == 'nl' }" @click="changeLocale('nl')">nl</button>
+        </li>
+      </ul>
+    </nav>
+    <img src="/assets/profile-optimized.1ed87b66.jpg" alt="This is a picture of me." class="hero-image">
+  </header>
+  <main id="content">
+    <div class="content-spacer">
+      <section class="info-section">
+        <section id="about">
+          <header><h1>{{t('about.header')}}</h1></header>
+          <article>
+            <p>{{t('about.text')}}</p>
+          </article>
+        </section>
+        <section id="experience">
+          <header><h2>{{t('experience.header')}}</h2></header>
+          <article></article>
+        </section>
+        <section id="education">
+          <header><h2>{{t('education.header')}}</h2></header>
+          <article></article>
+        </section>
+        <section id="skills">
+          <header><h2>{{t('skills.header')}}</h2></header>
+          <article></article>
+        </section>
+      </section>
+      <aside id="scrollspy">
+        <nav class="scrollspy-navbar" aria-labelledby="scrollspy-navigation">
+          <ul class="nav-elem-list">
+            <li class="nav-elem active"><a href="#about">{{t('navbar.about')}}</a></li>
+            <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
+            <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
+            <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+  </main>
+  
+</body>
+</html>
