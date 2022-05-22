@@ -39,7 +39,23 @@ const i18n = createI18n({
     }
 });
 
-createApp(i18n).mount();
+function Dropdown(active) {
+    return {
+        active: window.innerWidth >= 768 ? true : active,
+        toggle() {
+            this.active = !this.active
+        }
+    }
+}
+
+function Language() {
+    return i18n;
+}
+
+createApp({
+    Language,
+    Dropdown
+}).mount();
 
 window.onload = function(){
     const scrollspy_elems = document.querySelectorAll('#scrollspy .nav-elem');

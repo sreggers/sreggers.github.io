@@ -31,11 +31,14 @@
   <meta name="theme-color" content="#FF00FF">
 </head>
 
-<body>
+<body v-scope="Language()">
   <header id="hero">
-    <nav class="hero-navbar" aria-labelledby="header-navigation">
+    <nav v-scope="Dropdown(false)" class="hero-navbar" aria-labelledby="header-navigation">
       <h3 id="header-navigation" class="nav-brand">Sebastiaan&nbsp;<span class="header-accent">Reggers</span></h3>
-      <ul class="nav-elem-list">
+      <button class="nav-toggle" @click="toggle">
+        <img :src="active ? './src/images/dropdown-toggle-open.svg' : './src/images/dropdown-toggle-closed.svg'" alt="toggle">
+      </button>
+      <ul class="nav-elem-list" :class="{ open: active }">
         <li class="nav-elem"><a href="#about">{{t('navbar.about')}}</a></li>
         <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
         <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
