@@ -37,7 +37,7 @@ html {
 body {
   font-family: "OpenSans", sans-serif;
   font-size: 16px;
-  background: linear-gradient(to right, #DE482B 50%, #3B77BC 50%);
+  background-color: #3B77BC;
 }
 
 #hero {
@@ -58,6 +58,7 @@ body {
 
 .header-accent {
   color: #FCCF03;
+  font-size: 1.2em;
 }
 
 .nav-toggle {
@@ -76,14 +77,15 @@ body {
 }
 
 .hero-navbar .nav-elem-list {
-  display: none;
-  height: 0;
+  width: 100%;
+  max-height: 0;
+  transition: max-height 0.3s linear;
+  overflow-y: hidden;
 }
 
 .hero-navbar .nav-elem-list.open {
-  display: flex;
   height: auto;
-  transition: height 3s;
+  max-height: 300px;
 }
 
 .nav-elem a {
@@ -98,6 +100,13 @@ body {
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+
+.nav-elem-list .nav-elem a:hover,
+.nav-elem-list .nav-elem a:focus,
+.nav-elem-list .nav-elem button:hover,
+.nav-elem-list .nav-elem button:focus {
+  color: #FCCF03;
 }
 
 .nav-elem.active a,
@@ -175,7 +184,6 @@ body {
     width: 100%;
     max-width: 1100px;
     padding: 1em 3em;
-    border-left: 5px solid #000;
     background-color: #3B77BC;
   }
 
@@ -188,17 +196,13 @@ body {
   }
   
   .hero-navbar .nav-elem-list {
-    display: flex;
     margin-left: 2em;
     min-height: auto;
+    max-height: inherit;
     width: auto;
     background-color: transparent;
     flex-direction: row;
     flex-grow: 1;
-  }
-  
-  .hero-navbar .nav-elem {
-    margin-left: 2em;
   }
   
   .hero-navbar .nav-elem:last-child {
@@ -209,8 +213,13 @@ body {
   .hero-navbar .nav-elem a,
   .hero-navbar .nav-elem button {
     line-height: 1em;
-    padding: 0;
+    padding: 0.5em 0;
     width: auto;
+  }
+
+  .hero-navbar .nav-elem a {
+    padding-left: 1em;
+    padding-right: 1em;
   }
 
   .content-spacer {
@@ -218,13 +227,31 @@ body {
     width: 100%;
     max-width: 1100px;
     padding: 0 3em;
-    border-left: 5px solid #000000;
   }
 
   .info-section section {
     width: 75%;
     min-height: 95vh
   }
+
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background: linear-gradient(to right, #DE482B 50%, #3B77BC 50%);
+  }
+
+  #hero {
+    border-left: 5px solid #000000;
+  }
+
+  .content-spacer {
+    border-left: 5px solid #000000;
+  }
+
+}
+
+@media only screen and (min-width: 768px) and (min-height: 575px) {
 
   #scrollspy {
     display: block;
@@ -234,7 +261,7 @@ body {
   
   .scrollspy-navbar {
     position: fixed;
-    top: 300px;
+    top: 350px;
   }
   
   .scrollspy-navbar .nav-elem-list {
@@ -246,16 +273,27 @@ body {
   
   .scrollspy-navbar .nav-elem {
     width: 100%;
+    height: auto;
+  }
+
+  .scrollspy-navbar .nav-elem a {
+    display: inline-block;
     padding: 1em 1em;
+    width: 100%;
     background-color: #F9F9F9;
   }
   
-  .scrollspy-navbar .nav-elem.active {
+  .scrollspy-navbar .nav-elem.active a {
     border-bottom: 5px solid #000000;
   }
   
-  .scrollspy-navbar .nav-elem.active ~ .nav-elem {
+  .scrollspy-navbar .nav-elem.active ~ .nav-elem a {
     background-color: #FCCF03;
   }
-
+  
+  .scrollspy-navbar .nav-elem.active ~ .nav-elem a:hover,
+  .scrollspy-navbar .nav-elem.active ~ .nav-elem a:focus {
+    color: #F9F9F9;
+  }
+  
 }
