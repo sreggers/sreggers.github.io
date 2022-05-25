@@ -36,7 +36,7 @@
     <nav v-scope="Dropdown(false)" class="hero-navbar" aria-labelledby="header-navigation">
       <h3 id="header-navigation" class="nav-brand">Sebastiaan&nbsp;<span class="header-accent">Reggers</span></h3>
       <button class="nav-toggle" @click="toggle">
-        <img :src="active ? './src/images/dropdown-toggle-open.svg' : './src/images/dropdown-toggle-closed.svg'" alt="toggle">
+        <img :src="active ? '/icons/dropdown-toggle-open.svg' : '/icons/dropdown-toggle-closed.svg'" alt="toggle">
       </button>
       <ul class="nav-elem-list" :class="{ open: active }">
         <li class="nav-elem"><a href="#about">{{t('navbar.about')}}</a></li>
