@@ -33,16 +33,16 @@
 
 <body v-scope="Language()">
   <header id="hero">
-    <nav v-scope="Dropdown(false)" class="hero-navbar" aria-labelledby="header-navigation">
+    <nav v-scope="Navbar(false)" class="hero-navbar" aria-labelledby="header-navigation">
       <h3 id="header-navigation" class="nav-brand">S<span class="header-accent">.</span>Reggers</h3>
       <button class="nav-toggle" @click="toggle">
         <img :src="active ? '/icons/dropdown-toggle-open.svg' : '/icons/dropdown-toggle-closed.svg'" alt="toggle">
       </button>
       <ul class="nav-elem-list" :class="{ open: active }">
-        <li class="nav-elem"><a href="#about">{{t('navbar.about')}}</a></li>
-        <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
-        <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
-        <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+        <li class="nav-elem"><a href="#about" @click.prevent="scrollSmooth">{{t('navbar.about')}}</a></li>
+        <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth">{{t('navbar.experience')}}</a></li>
+        <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth">{{t('navbar.education')}}</a></li>
+        <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth">{{t('navbar.skills')}}</a></li>
         <li class="nav-elem">
           <button :class="{ active: current == 'en' }" @click="changeLocale('en')">en</button>
           &nbsp;
@@ -61,7 +61,7 @@
             <p>{{t('about.text')}}</p>
           </article>
         </section>
-        <section id="experience">
+        <section id= "experience">
           <header><h2>{{t('experience.header')}}</h2></header>
           <article></article>
         </section>
@@ -75,12 +75,12 @@
         </section>
       </section>
       <aside id="scrollspy">
-        <nav class="scrollspy-navbar" aria-labelledby="scrollspy-navigation">
+        <nav v-scope="Navbar(true)" class="scrollspy-navbar" aria-labelledby="scrollspy-navigation">
           <ul class="nav-elem-list">
-            <li class="nav-elem active"><a href="#about">{{t('navbar.about')}}</a></li>
-            <li class="nav-elem"><a href="#experience">{{t('navbar.experience')}}</a></li>
-            <li class="nav-elem"><a href="#education">{{t('navbar.education')}}</a></li>
-            <li class="nav-elem"><a href="#skills">{{t('navbar.skills')}}</a></li>
+            <li class="nav-elem active"><a href="#about" @click.prevent="scrollSmooth">{{t('navbar.about')}}</a></li>
+            <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth">{{t('navbar.experience')}}</a></li>
+            <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth">{{t('navbar.education')}}</a></li>
+            <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth">{{t('navbar.skills')}}</a></li>
           </ul>
         </nav>
       </aside>

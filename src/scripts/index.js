@@ -39,11 +39,15 @@ const i18n = createI18n({
     }
 });
 
-function Dropdown(active) {
+function Navbar(active) {
     return {
         active: window.innerWidth >= 768 ? true : active,
         toggle() {
             this.active = !this.active
+        },
+        scrollSmooth(event) {
+            const headerId = event.currentTarget.getAttribute('href').replace('#', '');
+            document.getElementById(headerId).scrollIntoView({behavior: "smooth"});
         }
     }
 }
@@ -54,7 +58,7 @@ function Language() {
 
 createApp({
     Language,
-    Dropdown
+    Navbar
 }).mount();
 
 window.onload = function(){
