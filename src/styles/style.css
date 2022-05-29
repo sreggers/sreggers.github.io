@@ -147,10 +147,10 @@ body {
 
 .info-section {
   padding-top: 50px;
+  width: 100%;
 }
 
 .info-section section {
-  width: 100%;
   min-height: 95vh
 }
 
@@ -160,13 +160,38 @@ body {
   line-height: 3em;
 }
 .info-section h2 {
-  color: #DE482B;
+  color: #000000;
   font-size: 1.5em;
-  line-height: 3em;
+  display: inline;
+  border-bottom: 4px solid #FCCF03
 }
 
 .info-section h3 {
+  color: #DE482B;
+}
+
+.info-section h4 {
+  color: #3B77BC;
+}
+
+.info-section article:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.info-section article {
+  margin-bottom: 3rem;
+}
+
+.info-section article p {
+  margin: 1rem 0;
+}
+
+.info-section article li::marker {
   color: #FCCF03;
+}
+
+.highlight {
+  border-bottom: 2px solid #FCCF03;
 }
 
 #scrollspy {
@@ -225,33 +250,26 @@ body {
     padding: 0 3em;
   }
 
-  .info-section section {
-    width: 75%;
-    min-height: 95vh
-  }
-
-}
-
-@media only screen and (min-width: 1200px) {
-  body {
-    background: linear-gradient(to right, #DE482B 50%, #3B77BC 50%);
-  }
-
-  #hero {
-    border-left: 5px solid #000000;
-  }
-
-  .content-spacer {
-    border-left: 5px solid #000000;
-  }
-
 }
 
 @media only screen and (min-width: 768px) and (min-height: 575px) {
 
+  .content-spacer {
+    padding: 0;
+  }
+
+  .info-section {
+    padding: 0 3em;
+    width: 75%;
+  }
+
+  .info-section section {
+    min-height: 95vh
+  }
+
   #scrollspy {
     display: block;
-    width: 35%;
+    width: 25%;
     border-left: 5px solid #000000;
   }
   
@@ -262,7 +280,7 @@ body {
   
   .scrollspy-navbar .nav-elem-list {
     background-color: #FCCF03;
-    height: 75vh;
+    height: 95vh;
     width: 50vw;
     overflow: hidden;
   }
@@ -292,4 +310,27 @@ body {
     color: #F9F9F9;
   }
   
+}
+
+@media only screen and (min-width: 1200px) {
+  body {
+    background: linear-gradient(to right, #DE482B 50%, #3B77BC 50%);
+  }
+
+  #hero {
+    border-left: 5px solid #000000;
+  }
+
+  .content-spacer {
+    border-left: 5px solid #000000;
+  }
+
+  .info-section {
+    min-width: 85%;
+  }
+
+  #scrollspy {
+    width: 15%;
+  }
+
 }

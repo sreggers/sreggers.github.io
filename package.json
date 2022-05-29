@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "petite-vue": "^0.4.1",
-    "petite-vue-i18n-lite": "^1.0.3"
+    "petite-vue-i18n-lite": "^1.0.3",
+    "vue-i18n": "^9.1.10"
   }
 }

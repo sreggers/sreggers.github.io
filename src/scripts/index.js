@@ -1,43 +1,14 @@
 "use strict";
 
-import { createApp } from 'petite-vue';
+import { createApp, reactive } from 'petite-vue';
 import { createI18n } from 'petite-vue-i18n-lite';
+import languages from './languages';
 
-const i18n = createI18n({
+const i18n = reactive(createI18n({
     locale: 'en',
     fallbackLocale: 'en',
-    messages: {
-        en: {
-            navbar: {
-                about: 'About',
-                experience: 'Experience',
-                education: 'Education',
-                skills: 'Skills',
-            },
-            about: {
-                header: 'Hello there!',
-                text: 'My name is Sebastiaan Reggers and I\'m currently working as a fullstack developer for the inSign software from IS2. As a programmer I get the most satisfaction out of developing an intuative and accessible frontend built on top of a robust and secure backend.',
-            },
-            experience: {
-                header: 'Experience',
-            },
-            education: {
-                header: 'Education',
-            },
-            skills: {
-                header: 'Skills',
-            },
-        },
-        nl: {
-            navbar: {
-                about: 'Introductie',
-                experience: 'Ervaring',
-                education: 'Opleiding',
-                skills: 'Vaardigheden',
-            },
-        },
-    }
-});
+    messages: languages,
+}));
 
 function Navbar(active) {
     return {
@@ -52,14 +23,17 @@ function Navbar(active) {
     }
 }
 
-function Language() {
-    return i18n;
+function App() {
+    return {}
 }
 
 createApp({
-    Language,
-    Navbar
-}).mount();
+    i18n,
+    App,
+    Navbar,
+})
+.directive('t', ({el, get, effect}) => effect(() => el.innerHTML = i18n.t(get())))
+.mount();
 
 window.onload = function(){
     const scrollspy_elems = document.querySelectorAll('#scrollspy .nav-elem');
