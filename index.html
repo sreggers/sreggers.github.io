@@ -26,12 +26,12 @@
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="manifest" href="/my.webmanifest">
   <meta name="theme-color" content="#FF00FF">
-  <script type="module" crossorigin src="/assets/index.6b94fb66.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.6bd6add4.js">
-  <link rel="stylesheet" href="/assets/index.9b5828ee.css">
+  <script type="module" crossorigin src="/assets/index.1736af21.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.428c8833.js">
+  <link rel="stylesheet" href="/assets/index.cf552505.css">
 </head>
 
-<body v-scope="Language()">
+<body v-scope="App()">
   <header id="hero">
     <nav v-scope="Navbar(false)" class="hero-navbar" aria-labelledby="header-navigation">
       <h3 id="header-navigation" class="nav-brand">S<span class="header-accent">.</span>Reggers</h3>
@@ -39,48 +39,92 @@
         <img :src="active ? '/icons/dropdown-toggle-open.svg' : '/icons/dropdown-toggle-closed.svg'" alt="toggle">
       </button>
       <ul class="nav-elem-list" :class="{ open: active }">
-        <li class="nav-elem"><a href="#about" @click.prevent="scrollSmooth">{{t('navbar.about')}}</a></li>
-        <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth">{{t('navbar.experience')}}</a></li>
-        <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth">{{t('navbar.education')}}</a></li>
-        <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth">{{t('navbar.skills')}}</a></li>
+        <li class="nav-elem"><a href="#about" @click.prevent="scrollSmooth" v-t="'navbar.about'">About</a></li>
+        <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth" v-t="'navbar.experience'">Experience</a></li>
+        <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth" v-t="'navbar.education'">Education</a></li>
+        <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth" v-t="'navbar.skills'">Skills</a></li>
         <li class="nav-elem">
-          <button :class="{ active: current == 'en' }" @click="changeLocale('en')">en</button>
+          <button :class="{ active: i18n.current == 'en' }" @click="i18n.changeLocale('en')">en</button>
           &nbsp;
-          <button :class="{ active: current == 'nl' }" @click="changeLocale('nl')">nl</button>
+          <button :class="{ active: i18n.current == 'nl' }" @click="i18n.changeLocale('nl')">nl</button>
         </li>
       </ul>
     </nav>
-    <img src="/assets/profile-optimized.1ed87b66.jpg" alt="This is a picture of me." class="hero-image">
+    <img src="/assets/profile-optimized.1ed87b66.jpg" :alt="t('navbar.imgalt')" alt="This is a picture of me." class="hero-image">
   </header>
   <main id="content">
     <div class="content-spacer">
       <section class="info-section">
         <section id="about">
-          <header><h1>{{t('about.header')}}</h1></header>
+          <header><h1 v-t="'about.header'">Hello there!</h1></header>
           <article>
-            <p>{{t('about.text')}}</p>
+            <p v-t="'about.p1'">My name is Sebastiaan Reggers and I'm currently working as a <span class="highlight">fullstack developer</span> for the inSign software from IS2. As a programmer I get the most satisfaction out of developing an <span class="highlight">intuative and accessible</span> frontend built on top of a <span class="highlight">robust and secure</span> backend.</p>
+            <p v-t="'about.p2'">Outside of my professional carreer I like to work on hobby projects. These projects can vary between trying out <span class="highlight">new web technologies</span>, such as Svelte and Astro, writing and playing <span class="highlight">Dungeons and Dragons</span> campaigns, creating <span class="highlight">rom hacks</span> of my favorite childhood games, experimenting with <span class="highlight">embedded devices</span>, such as the rasperry pi and organizing another, probably doomed, fortress in the game <span class="highlight">Dwarf Fortress</span>.</p>
           </article>
         </section>
-        <section id= "experience">
-          <header><h2>{{t('experience.header')}}</h2></header>
+        <section id="experience">
+          <header><h2 v-t="'experience.header'">Experience</h2></header>
           <article></article>
         </section>
         <section id="education">
-          <header><h2>{{t('education.header')}}</h2></header>
-          <article></article>
+          <header><h2 v-t="'education.header'">Education</h2></header>
+          <article>
+            <h3 class="article-header" v-t="'education.a1.header'">Häme University of Applied Sciences, HAMK</h3>
+            <h4 class="article-subheader" v-t="'education.a1.subheader'">Bachelor of Applied Science -  Business Information Technology</h4>
+            <h5 class="article-extra" v-t="'education.a1.extra'">2019 - 2020</h5>
+            <p v-t="'education.a1.description'">Double degree programme in Finland, organised by Erasmus, in cooperation with the Thomas More University. This programme helped me approach my studies from a different point of view, due to the more individualistic study methods used in the Finnish education system.</p>
+            <p v-t="'education.subjects'">The subjects covered by this studies were:</p>
+            <ul>
+              <li v-t="'education.a1.subject1'">Cloud-based full-stack Mobile Development</li>
+              <li v-t="'education.a1.subject2'">Business Administration and Business Intelligence</li>
+              <li v-t="'education.a1.subject3'">Thesis in Geospatial Data Analysis</li>
+              <li v-t="'education.a1.subject4'">Project in Virtual Studio Movie Capturing</li>
+            </ul>
+          </article>
+          <article>
+            <h3 class="article-header" v-t="'education.a2.header'">Thomas More University of Applied Sciences</h3>
+            <h4 class="article-subheader" v-t="'education.a2.subheader'">Bachelor of Applied Science - Computer Science</h4>
+            <h5 class="article-extra" v-t="'education.a2.extra'">2017 - 2020</h5>
+            <p v-t="'education.a2.description'">Bachelor degree programme in Belgium, with a primary focus on Full-stack Application Development. This studies helped me approach programming in a more structured way and introduced me to several different programming languages and working methods.</p>
+            <p v-t="'education.subjects'">The subjects covered by this studies were:</p>
+            <ul>
+              <li v-t="'education.a2.subject1'">Full-stack Application Development in Windows and Linux Distributions</li>
+              <li v-t="'education.a2.subject2'">ERP Software Management and Project Planning</li>
+              <li v-t="'education.a2.subject3'">Basics of Networking and Embedded Devices</li>
+              <li v-t="'education.a2.subject4'">Basics of Business Management</li>
+            </ul>
+          </article>
+          <article>
+            <h3 class="article-header" v-t="'education.a3.header'">KU Leuven</h3>
+            <h4 class="article-subheader" v-t="'education.a3.subheader'">Bachelor of Science, Biochemistry and Biotechnology, unfinished</h4>
+            <h5 class="article-extra" v-t="'education.a3.extra'">2016 - 2017</h5>
+            <p v-t="'education.a3.description'">The first two semesters of this studies taught me some studying methods, but also made me realize this was not a path I wanted to follow.</p>
+          </article>
+          <article>
+            <h3 class="article-header" v-t="'education.a4.header'">Escuela Técnica Nº35, Crespo, Argentina</h3>
+            <h4 class="article-subheader" v-t="'education.a4.subheader'">High School, Business Administration</h4>
+            <h5 class="article-extra" v-t="'education.a4.extra'">2015 - 2016</h5>
+            <p v-t="'education.a4.description'">Two semesters at a local, technical, high school during my exchange year in Argentina, organized by AFS. This was my first long-term international experience and got me hooked.</p>
+          </article>
+          <article>
+            <h3 class="article-header" v-t="'education.a4.header'">Onze-Lieve-Vrouwecollege, Antwerpen</h3>
+            <h4 class="article-subheader" v-t="'education.a4.subheader'">High School, Latin-Sciences'</h4>
+            <h5 class="article-extra" v-t="'education.a4.extra'">2009 - 2015</h5>
+            <p v-t="'education.a4.description'">General high school education (ASO).</p>
+          </article>
         </section>
         <section id="skills">
-          <header><h2>{{t('skills.header')}}</h2></header>
+          <header><h2 v-t="'skills.header'">Skills</h2></header>
           <article></article>
         </section>
       </section>
       <aside id="scrollspy">
         <nav v-scope="Navbar(true)" class="scrollspy-navbar" aria-labelledby="scrollspy-navigation">
           <ul class="nav-elem-list">
-            <li class="nav-elem active"><a href="#about" @click.prevent="scrollSmooth">{{t('navbar.about')}}</a></li>
-            <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth">{{t('navbar.experience')}}</a></li>
-            <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth">{{t('navbar.education')}}</a></li>
-            <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth">{{t('navbar.skills')}}</a></li>
+            <li class="nav-elem active"><a href="#about" @click.prevent="scrollSmooth" v-t="'navbar.about'">About</a></li>
+            <li class="nav-elem"><a href="#experience" @click.prevent="scrollSmooth" v-t="'navbar.experience'">Experience</a></li>
+            <li class="nav-elem"><a href="#education" @click.prevent="scrollSmooth" v-t="'navbar.education'">Education</a></li>
+            <li class="nav-elem"><a href="#skills" @click.prevent="scrollSmooth" v-t="'navbar.skills'">Skills</a></li>
           </ul>
         </nav>
       </aside>
